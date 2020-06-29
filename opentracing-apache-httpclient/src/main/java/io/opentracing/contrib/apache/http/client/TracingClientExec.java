@@ -134,7 +134,7 @@ public class TracingClientExec implements ClientExecChain {
         .withTag(Tags.SPAN_KIND.getKey(), Tags.SPAN_KIND_CLIENT)
         .asChildOf(parentSpan)
         .start();
-    if(!injectDisabled) {
+    if (!injectDisabled) {
       tracer.inject(redirectSpan.context(), Format.Builtin.HTTP_HEADERS, new HttpHeadersInjectAdapter(request));
     }
 
